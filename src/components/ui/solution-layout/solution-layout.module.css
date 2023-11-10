@@ -44,8 +44,3 @@
 .link {
   text-decoration: none;
 }
-.mainBox {
-  display: flex;
-  max-width: 522px;
-  margin: auto;
-}
