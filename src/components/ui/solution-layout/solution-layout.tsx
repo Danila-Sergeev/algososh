@@ -1,7 +1,9 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ReturnButton } from "../return-button/return-button";
 import { Link } from "react-router-dom";
 import styles from "./solution-layout.module.css";
+import { Input } from "../input/input";
+import { Button } from "../button/button";
 
 interface SolutionLayoutProps {
   title: string;
@@ -13,6 +15,10 @@ export const SolutionLayout: React.FC<SolutionLayoutProps> = ({
   title,
   children,
 }) => {
+  const [values, setValues] = useState();
+  const onClick = (event: ChangeEvent<HTMLInputElement>) => {
+    /*  setValues({...values, Input.value}); */
+  };
   return (
     <main className={`${styles.content} ${extraClass}`}>
       <div className={styles.titleBox}>
@@ -33,6 +39,10 @@ export const SolutionLayout: React.FC<SolutionLayoutProps> = ({
           {title}
         </h3>
         {children}
+        <div className={styles.mainBox}>
+          <Input maxLength={11} isLimitText={true} />
+          <Button text="Развернуть" />
+        </div>
       </div>
       <p
         className={`text text_type_column text_color_input mt-14 ${styles.copyright}`}
