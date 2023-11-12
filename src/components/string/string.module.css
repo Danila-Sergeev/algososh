@@ -3,3 +3,8 @@
   max-width: 522px;
   margin: auto;
 }
+.circleBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+}
