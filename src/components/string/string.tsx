@@ -85,7 +85,6 @@ export const StringComponent: React.FC = () => {
         <Input maxLength={11} isLimitText={true} onChange={onInputChange} />
         <Button
           text="Развернуть"
-          extraClass={styles.button__extra}
           type="submit"
           isLoader={isSorting}
           disabled={isSorting}
