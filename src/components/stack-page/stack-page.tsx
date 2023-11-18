@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import styles from "./stack-page.module.css";
 import { Input } from "../ui/input/input";
@@ -11,6 +11,8 @@ export const StackPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [symbol, setSymbol] = useState<string>("");
   const [stackArray, setStackArray] = useState<StackArr[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [deleteDisabled, setDeleteDisabled] = useState<boolean>(false);
   const stack = new Stack();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +69,19 @@ export const StackPage: React.FC = () => {
     setIsLoading(false);
   };
 
+  useEffect(() => {
+    if (symbol === "") {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [symbol]);
+  useEffect(() => {
+    if (stackArray.length > 0) {
+      setDeleteDisabled(false);
+    } else setDeleteDisabled(true);
+  }, [stackArray]);
+
   return (
     <SolutionLayout title="Стек">
       <div className={styles.content}>
@@ -81,14 +96,18 @@ export const StackPage: React.FC = () => {
           <p className={styles.text}>Максимум — 4 символа</p>
         </div>
         <div className={styles.boxes}>
-          <Button text="Добавить" onClick={handleAdd} disabled={isLoading} />
+          <Button text="Добавить" onClick={handleAdd} disabled={disabled} />
           <Button
             text="Удалить"
             onClick={handleDelete}
-            disabled={symbol.trim() !== ""}
+            disabled={deleteDisabled}
           />
         </div>
-        <Button text="Очистить" onClick={handleClear} disabled={isLoading} />
+        <Button
+          text="Очистить"
+          onClick={handleClear}
+          disabled={deleteDisabled}
+        />
       </div>
       <div className={styles.circle__container}>
         {stackArray.map((item, index) => (

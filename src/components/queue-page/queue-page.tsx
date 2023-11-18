@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import styles from "./queue-page.module.css";
 import { Input } from "../ui/input/input";
@@ -10,6 +10,8 @@ import { StackArr } from "../stack-page/stach-class";
 import { ElementStates } from "../../types/element-states";
 export const QueuePage: React.FC = () => {
   const queue = useRef(new Queue());
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [deleteDisabled, setDeleteDisabled] = useState<boolean>(true);
   const [queueArray, setQueueArray] = useState<StackArr[]>(
     new Array(7).fill({ value: null, type: ElementStates.Default })
   );
@@ -56,11 +58,16 @@ export const QueuePage: React.FC = () => {
         setIsLoading(false);
       }, SHORT_DELAY_IN_MS);
     }
+    queueArray.map((item, index) => {
+      console.log(item.value);
+      if (item.value === null) setDeleteDisabled(true);
+    });
   };
 
   const handleClear = () => {
     setIsLoading(true);
     queue.current.clear();
+    setDeleteDisabled(true);
     setTimeout(() => {
       setQueueArray(
         new Array(7).fill({ value: null, type: ElementStates.Default })
@@ -68,6 +75,20 @@ export const QueuePage: React.FC = () => {
       setIsLoading(false);
     }, SHORT_DELAY_IN_MS);
   };
+
+  useEffect(() => {
+    if (symbol === "" || symbol === null) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [symbol]);
+  useEffect(() => {
+    queueArray.map((item, index) => {
+      console.log(item.value);
+      if (item.value !== null) setDeleteDisabled(false);
+    });
+  }, [queueArray, symbol]);
   return (
     <SolutionLayout title="Очередь">
       <div className={styles.content}>
@@ -82,10 +103,18 @@ export const QueuePage: React.FC = () => {
           <p className={styles.text}>Максимум — 4 символа</p>
         </div>
         <div className={styles.boxes}>
-          <Button text="Добавить" onClick={handleAdd} disabled={isLoading} />
-          <Button text="Удалить" onClick={handleDelete} disabled={isLoading} />
+          <Button text="Добавить" onClick={handleAdd} disabled={disabled} />
+          <Button
+            text="Удалить"
+            onClick={handleDelete}
+            disabled={deleteDisabled}
+          />
         </div>
-        <Button text="Очистить" onClick={handleClear} disabled={isLoading} />
+        <Button
+          text="Очистить"
+          onClick={handleClear}
+          disabled={deleteDisabled}
+        />
       </div>
       <div className={styles.circle__container}>
         {queueArray.map((item, index) => (

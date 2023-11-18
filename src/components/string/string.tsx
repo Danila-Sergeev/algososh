@@ -15,6 +15,7 @@ export const StringComponent: React.FC = () => {
   const [startAnimation, setStartAnimation] = useState<boolean>(false);
   const [isAnimationDone, setIsAnimationDone] = useState<boolean>(false);
   const [timeouts, setTimeouts] = useState<NodeJS.Timeout[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (isAnimationDone) {
@@ -79,6 +80,14 @@ export const StringComponent: React.FC = () => {
     }
   }, [startAnimation]);
 
+  useEffect(() => {
+    if (values === "") {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [values]);
+
   return (
     <SolutionLayout title="Строка">
       <form onSubmit={handleSubmit} className={styles.mainBox}>
@@ -87,7 +96,7 @@ export const StringComponent: React.FC = () => {
           text="Развернуть"
           type="submit"
           isLoader={isSorting}
-          disabled={isSorting}
+          disabled={disabled}
         />
       </form>
 
