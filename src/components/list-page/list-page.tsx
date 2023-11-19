@@ -1,5 +1,5 @@
 import styles from "./list-page.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import { ElementStates } from "../../types/element-states";
 import { RemovingNode } from "../../types/list";
@@ -16,6 +16,7 @@ import { CircleWithArrow } from "../ui/circle-with-arrow/circle-with-arrow";
 export const ListPage: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [indexValue, setIndexValue] = useState("");
+  const [deleteDisabled, setDeleteDisabled] = useState<boolean>(true);
 
   const [onAddLoading, setOnAddLoading] = useState({
     index: false,
@@ -299,7 +300,11 @@ export const ListPage: React.FC = () => {
     setOnDeleteLoading({ ...onDeleteLoading, index: false });
     setDelitionIndex(null);
   };
-
+  useEffect(() => {
+    if (listArray.current.head !== null) {
+      setDeleteDisabled(false);
+    } else setDeleteDisabled(true);
+  }, [data]);
   return (
     <SolutionLayout title="Связный список">
       <div className={styles.content}>
@@ -334,14 +339,14 @@ export const ListPage: React.FC = () => {
               extraClass={styles.button__extra_top}
               onClick={handleRemoveFromHead}
               isLoader={onDeleteLoading.head}
-              disabled={inputValue.trim() !== "" || indexValue.trim() !== ""}
+              disabled={deleteDisabled}
             />
             <Button
               text="Удалить из tail"
               extraClass={styles.button__extra_top}
               onClick={handleRemoveFromTail}
               isLoader={onDeleteLoading.tail}
-              disabled={inputValue.trim() !== "" || indexValue.trim() !== ""}
+              disabled={deleteDisabled}
             />
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
@@ -23,6 +23,7 @@ export const FibonacciPage: React.FC = () => {
     event.preventDefault();
     handleClick();
   };
+
   const handleClick = async () => {
     if (number < 0 || number > 19) {
       alert("Введенное число должно быть от 1 до 19");
@@ -31,8 +32,10 @@ export const FibonacciPage: React.FC = () => {
     setIsLoading(true);
     const sequence = await calculateFibonacci(number);
     setFibonacciSequence(sequence);
-    displayNumbers(0, sequence.length);
+    await displayNumbers(0, sequence.length);
   };
+
+  const timeoutRef = useRef<number>();
 
   const displayNumbers = (index: number, total: number) => {
     if (index < total) {
@@ -41,29 +44,32 @@ export const FibonacciPage: React.FC = () => {
         setDisplayedIndexes((prev) => [...prev, index]);
         displayNumbers(index + 1, total);
       }, SHORT_DELAY_IN_MS);
-      setTimeoutId(id); // обновление состояния с новым ID
+      timeoutRef.current = id; // обновление состояния с новым ID
     } else {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    if (fibonacciSequence.length > 0) {
+    if (fibonacciSequence.length > 0 && isLoading) {
       displayNumbers(0, fibonacciSequence.length);
     }
+
     return () => {
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
+      if (timeoutRef.current !== undefined) {
+        window.clearTimeout(timeoutRef.current);
       }
     };
-  }, [fibonacciSequence, timeoutId]);
-
+  }, [fibonacciSequence, isLoading]);
   useEffect(() => {
     if (!number) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
+    if (number > 19) {
+      setDisabled(true);
+    } else setDisabled(false);
   }, [number]);
 
   return (
@@ -73,6 +79,7 @@ export const FibonacciPage: React.FC = () => {
           isLimitText={true}
           maxLength={19}
           max={19}
+          value={number.toString()}
           onChange={handleChange}
           type="number"
         />

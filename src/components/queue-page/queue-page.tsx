@@ -6,7 +6,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import { Queue } from "./queue-class";
-import { StackArr } from "../stack-page/stach-class";
+import { StackArr } from "../stack-page/stack-class";
 import { ElementStates } from "../../types/element-states";
 export const QueuePage: React.FC = () => {
   const queue = useRef(new Queue());
@@ -85,7 +85,6 @@ export const QueuePage: React.FC = () => {
   }, [symbol]);
   useEffect(() => {
     queueArray.map((item, index) => {
-      console.log(item.value);
       if (item.value !== null) setDeleteDisabled(false);
     });
   }, [queueArray, symbol]);
@@ -103,11 +102,17 @@ export const QueuePage: React.FC = () => {
           <p className={styles.text}>Максимум — 4 символа</p>
         </div>
         <div className={styles.boxes}>
-          <Button text="Добавить" onClick={handleAdd} disabled={disabled} />
+          <Button
+            text="Добавить"
+            onClick={handleAdd}
+            disabled={disabled}
+            isLoader={isLoading}
+          />
           <Button
             text="Удалить"
             onClick={handleDelete}
             disabled={deleteDisabled}
+            isLoader={isLoading}
           />
         </div>
         <Button

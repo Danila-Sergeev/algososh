@@ -3,7 +3,7 @@ import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import styles from "./stack-page.module.css";
 import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
-import { Stack, StackArr } from "./stach-class";
+import { Stack, StackArr } from "./stack-class";
 import { ElementStates } from "../../types/element-states";
 import { SHORT_DELAY_IN_MS, pause } from "../../constants/delays";
 import { Circle } from "../ui/circle/circle";
@@ -80,7 +80,7 @@ export const StackPage: React.FC = () => {
     if (stackArray.length > 0) {
       setDeleteDisabled(false);
     } else setDeleteDisabled(true);
-  }, [stackArray]);
+  }, [stackArray, handleDelete]);
 
   return (
     <SolutionLayout title="Стек">
@@ -96,17 +96,24 @@ export const StackPage: React.FC = () => {
           <p className={styles.text}>Максимум — 4 символа</p>
         </div>
         <div className={styles.boxes}>
-          <Button text="Добавить" onClick={handleAdd} disabled={disabled} />
+          <Button
+            text="Добавить"
+            onClick={handleAdd}
+            disabled={disabled}
+            isLoader={isLoading}
+          />
           <Button
             text="Удалить"
             onClick={handleDelete}
             disabled={deleteDisabled}
+            isLoader={isLoading}
           />
         </div>
         <Button
           text="Очистить"
           onClick={handleClear}
           disabled={deleteDisabled}
+          isLoader={isLoading}
         />
       </div>
       <div className={styles.circle__container}>
