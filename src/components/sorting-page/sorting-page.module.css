@@ -1,0 +1,71 @@
+.form {
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+	width: 980px;
+	gap: 12px;
+	margin: 0 auto;
+}
+
+.radioInput {
+	margin-left: 28px;
+}
+
+.button {
+	width: 205px;
+}
+
+.buttonFirst {
+	width: 205px;
+	margin-left: 40px;
+}
+
+.buttonLast {
+	width: 168px;
+	margin-left: 68px;
+}
+
+.columns {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 10px;
+	height: 340px;
+	box-sizing: border-box;
+	margin: 50px auto;
+	padding: 0;
+	list-style: none;
+
+	-webkit-animation-name: scale;
+	animation-name: scale;
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes scale {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes scale {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
