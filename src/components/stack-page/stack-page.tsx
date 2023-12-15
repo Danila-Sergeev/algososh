@@ -98,12 +98,14 @@ export const StackPage: React.FC = () => {
         <div className={styles.boxes}>
           <Button
             text="Добавить"
+            data-test-id="addToStack"
             onClick={handleAdd}
             disabled={disabled}
             isLoader={isLoading}
           />
           <Button
             text="Удалить"
+            data-test-id="removeFromStack"
             onClick={handleDelete}
             disabled={deleteDisabled}
             isLoader={isLoading}
@@ -111,12 +113,16 @@ export const StackPage: React.FC = () => {
         </div>
         <Button
           text="Очистить"
+          data-test-id="clearStack"
           onClick={handleClear}
           disabled={deleteDisabled}
           isLoader={isLoading}
         />
       </div>
-      <div className={styles.circle__container}>
+      <div
+        className={styles.circle__container}
+        data-test-id="stackCircleContainer"
+      >
         {stackArray.map((item, index) => (
           <Circle
             key={index}

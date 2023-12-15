@@ -91,9 +91,15 @@ export const StringComponent: React.FC = () => {
   return (
     <SolutionLayout title="Строка">
       <form onSubmit={handleSubmit} className={styles.mainBox}>
-        <Input maxLength={11} isLimitText={true} onChange={onInputChange} />
+        <Input
+          data-test-id="inputExtra"
+          maxLength={11}
+          isLimitText={true}
+          onChange={onInputChange}
+        />
         <Button
           text="Развернуть"
+          data-test-id="buttonExtra"
           type="submit"
           isLoader={isSorting}
           disabled={disabled}
