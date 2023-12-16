@@ -7,9 +7,11 @@ exports[`Circle Component рендерит в состоянии changing 1`] = 
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   changing"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -20,6 +22,7 @@ exports[`Circle Component рендерит в состоянии changing 1`] = 
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -32,9 +35,11 @@ exports[`Circle Component рендерит в состоянии default 1`] = `
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -45,6 +50,7 @@ exports[`Circle Component рендерит в состоянии default 1`] = `
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -57,9 +63,11 @@ exports[`Circle Component рендерит в состоянии modified 1`] = 
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   modified"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -70,6 +78,7 @@ exports[`Circle Component рендерит в состоянии modified 1`] = 
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -82,11 +91,13 @@ exports[`Circle Component рендерит с head 1`] = `
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head string"
+      data-test-id="circleHead"
     >
       Test Head
     </div>
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -97,6 +108,7 @@ exports[`Circle Component рендерит с head 1`] = `
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -109,9 +121,11 @@ exports[`Circle Component рендерит с index 1`] = `
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -124,6 +138,7 @@ exports[`Circle Component рендерит с index 1`] = `
     </p>
     <div
       class="text text_type_input text_color_input mt-4 absolute tail60 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -136,6 +151,7 @@ exports[`Circle Component рендерит с react-элементом в head 1
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     >
       <span>
         React Element
@@ -143,6 +159,7 @@ exports[`Circle Component рендерит с react-элементом в head 1
     </div>
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -153,6 +170,7 @@ exports[`Circle Component рендерит с react-элементом в head 1
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -165,9 +183,11 @@ exports[`Circle Component рендерит с react-элементом в tail 1
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -178,6 +198,7 @@ exports[`Circle Component рендерит с react-элементом в tail 1
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     >
       <span>
         Tail Element
@@ -194,9 +215,11 @@ exports[`Circle Component рендерит с tail 1`] = `
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -207,6 +230,7 @@ exports[`Circle Component рендерит с tail 1`] = `
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 string"
+      data-test-id="circleTail"
     >
       Tail Text
     </div>
@@ -221,9 +245,11 @@ exports[`Circle Component рендерит с пропом isSmall === true 1`] 
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
-      class="circle  small default"
+      class="circle  small is-small default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -234,6 +260,7 @@ exports[`Circle Component рендерит с пропом isSmall === true 1`] 
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -246,9 +273,11 @@ exports[`Circle Component рендерит элемент без буквы 1`] 
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -259,6 +288,7 @@ exports[`Circle Component рендерит элемент без буквы 1`] 
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>
@@ -271,9 +301,11 @@ exports[`Circle Component рендерит элемент с буквой 1`] = 
   >
     <div
       class="text text_type_input text_color_input mb-4 absolute head element"
+      data-test-id="circleHead"
     />
     <div
       class="circle   default"
+      data-test-id="circle"
     >
       <p
         class="text text_type_circle text_color_input letter"
@@ -286,6 +318,7 @@ exports[`Circle Component рендерит элемент с буквой 1`] = 
     />
     <div
       class="text text_type_input text_color_input mt-4 absolute tail30 element"
+      data-test-id="circleTail"
     />
   </div>
 </DocumentFragment>

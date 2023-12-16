@@ -1,7 +1,7 @@
 describe("Роутинг работает корректно", () => {
   beforeEach(() => {
     // Перед каждым тестом переходим на главную страницу
-    cy.visit("http://localhost:3000");
+    cy.visit("");
   });
 
   it("главная страница загружается корректно", () => {
@@ -9,32 +9,32 @@ describe("Роутинг работает корректно", () => {
   });
 
   it("страница строки загружается корректно", () => {
-    cy.visit("http://localhost:3000/recursion");
+    cy.visit("recursion");
     cy.contains("Строка");
   });
 
   it("страница Фибоначчи загружается корректно", () => {
-    cy.visit("http://localhost:3000/fibonacci");
+    cy.visit("fibonacci");
     cy.contains("Последовательность Фибоначчи");
   });
 
   it("страница сортировки массивов загружается корректно", () => {
-    cy.visit("http://localhost:3000/sorting");
+    cy.visit("sorting");
     cy.contains("Сортировка массива");
   });
 
   it("страница стека загружается корректно", () => {
-    cy.visit("http://localhost:3000/stack");
+    cy.visit("stack");
     cy.contains("Стек");
   });
 
   it("страница очереди загружается корректно", () => {
-    cy.visit("http://localhost:3000/queue");
+    cy.visit("queue");
     cy.contains("Очередь");
   });
 
   it("страница связного списка загружается корректно", () => {
-    cy.visit("http://localhost:3000/list");
+    cy.visit("list");
     cy.contains("Связный список");
   });
 });

@@ -10,9 +10,11 @@ exports[`CircleWithArrow Component рендерит элемент без стр
     >
       <div
         class="text text_type_input text_color_input mb-4 absolute head element"
+        data-test-id="circleHead"
       />
       <div
         class="circle   default"
+        data-test-id="circle"
       >
         <p
           class="text text_type_circle text_color_input letter"
@@ -23,6 +25,7 @@ exports[`CircleWithArrow Component рендерит элемент без стр
       />
       <div
         class="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-test-id="circleTail"
       />
     </div>
   </div>
@@ -39,9 +42,11 @@ exports[`CircleWithArrow Component рендерит элемент со стре
     >
       <div
         class="text text_type_input text_color_input mb-4 absolute head element"
+        data-test-id="circleHead"
       />
       <div
         class="circle   default"
+        data-test-id="circle"
       >
         <p
           class="text text_type_circle text_color_input letter"
@@ -52,6 +57,7 @@ exports[`CircleWithArrow Component рендерит элемент со стре
       />
       <div
         class="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-test-id="circleTail"
       />
     </div>
     <div

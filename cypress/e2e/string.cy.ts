@@ -1,9 +1,14 @@
 import { SHORT_DELAY_IN_MS, DELAY_IN_MS } from "../../src/constants/delays";
-import { state__default, state__changing, state__modified } from "../constants";
+import {
+  state__default,
+  state__changing,
+  state__modified,
+  cyCircle,
+} from "../constants";
 
 describe("StringComponent tests", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/recursion");
+    cy.visit("recursion");
   });
 
   it('Проверка доступности кнопки "Добавить" при пустом поле ввода', () => {
@@ -14,14 +19,14 @@ describe("StringComponent tests", () => {
   it("Проверка процесса разворота строки", () => {
     const testString = "abcde";
 
-    cy.get('input[data-test-id="inputExtra"]').type(testString);
-    cy.get('button[data-test-id="buttonExtra"]').click();
+    cy.get('button[data-test-id="removeFromQueue""]').type(testString);
+    cy.get('button[data-test-id="removeFromQueue""]').click();
 
     // Проверка начального состояния букв
     testString.split("").forEach((char) => {
       cy.contains(char)
         .parent()
-        .find('[data-test-id="circle"]')
+        .find(cyCircle)
         .should("have.css", "border-color", state__default);
     });
 
@@ -39,11 +44,11 @@ describe("StringComponent tests", () => {
         // Проверка стилей перед обменом местами
         cy.contains(firstChar)
           .parent()
-          .find('[data-test-id="circle"]')
+          .find(cyCircle)
           .should("have.css", "border-color", state__changing);
         cy.contains(lastChar)
           .parent()
-          .find('[data-test-id="circle"]')
+          .find(cyCircle)
           .should("have.css", "border-color", state__changing);
 
         cy.wait(SHORT_DELAY_IN_MS);
@@ -51,11 +56,11 @@ describe("StringComponent tests", () => {
         // Проверка стилей после обмена местами
         cy.contains(firstChar)
           .parent()
-          .find('[data-test-id="circle"]')
+          .find(cyCircle)
           .should("have.css", "border-color", state__modified);
         cy.contains(lastChar)
           .parent()
-          .find('[data-test-id="circle"]')
+          .find(cyCircle)
           .should("have.css", "border-color", state__modified);
       }
     });
@@ -66,10 +71,9 @@ describe("StringComponent tests", () => {
       reversedString.split("").forEach((char) => {
         cy.contains(char)
           .parent()
-          .find('[data-test-id="circle"]')
+          .find(cyCircle)
           .should("have.css", "border-color", state__modified);
       });
     });
   });
 });
-

@@ -1,9 +1,9 @@
-import { state__default, state__changing } from "../constants";
+import { state__default, state__changing, cyCircle } from "../constants";
 import { SHORT_DELAY_IN_MS } from "../../src/constants/delays";
 
 describe("Stack Page", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/stack");
+    cy.visit("stack");
   });
 
   it("Проверка доступности кнопки при пустом поле ввода", () => {
@@ -16,14 +16,14 @@ describe("Stack Page", () => {
     cy.get("input").type(char);
     cy.get('button[data-test-id="addToStack"]').click();
 
-    cy.get('[data-test-id="circle"]')
+    cy.get(cyCircle)
       .contains(char)
       .parent() // Выбираем родительский элемент
       .should("have.css", "border-color", state__changing);
 
     cy.wait(SHORT_DELAY_IN_MS);
 
-    cy.get('[data-test-id="circle"]')
+    cy.get(cyCircle)
       .contains(char)
       .parent() // Выбираем родительский элемент
       .should("have.css", "border-color", state__default);
@@ -51,4 +51,3 @@ describe("Stack Page", () => {
       .should("have.length", 0);
   });
 });
-
