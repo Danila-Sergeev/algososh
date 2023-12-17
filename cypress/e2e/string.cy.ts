@@ -19,8 +19,8 @@ describe("StringComponent tests", () => {
   it("Проверка процесса разворота строки", () => {
     const testString = "abcde";
 
-    cy.get('button[data-test-id="removeFromQueue""]').type(testString);
-    cy.get('button[data-test-id="removeFromQueue""]').click();
+    cy.get('input[data-test-id="inputExtra"]').type(testString);
+    cy.get('button[data-test-id="buttonExtra"]').click();
 
     // Проверка начального состояния букв
     testString.split("").forEach((char) => {
