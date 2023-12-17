@@ -89,6 +89,7 @@ export const FibonacciPage: React.FC = () => {
           onClick={handleClick}
           isLoader={isLoading}
           disabled={disabled}
+          data-test-id="buttonFibonacci"
         />
       </form>
       <div className={styles.circleBox}>

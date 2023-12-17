@@ -316,12 +316,14 @@ export const ListPage: React.FC = () => {
               extraClass={styles.input__extra}
               maxLength={4}
               onChange={handleInputChange}
+              data-test-id="listSymbolInput"
             />
             <p className={styles.text}>Максимум — 4 символа</p>
           </div>
           <div className={styles.boxes}>
             <Button
               text="Добавить в head"
+              data-test-id="addToHead"
               extraClass={styles.button__extra_top}
               onClick={handleAddToHead}
               isLoader={onAddLoading.head}
@@ -329,6 +331,7 @@ export const ListPage: React.FC = () => {
             />
             <Button
               text="Добавить в tail"
+              data-test-id="addToTail"
               extraClass={styles.button__extra_top}
               onClick={handleAddToTail}
               isLoader={onAddLoading.tail}
@@ -336,6 +339,7 @@ export const ListPage: React.FC = () => {
             />
             <Button
               text="Удалить из head"
+              data-test-id="removeFromHead"
               extraClass={styles.button__extra_top}
               onClick={handleRemoveFromHead}
               isLoader={onDeleteLoading.head}
@@ -343,6 +347,7 @@ export const ListPage: React.FC = () => {
             />
             <Button
               text="Удалить из tail"
+              data-test-id="removeFromTail"
               extraClass={styles.button__extra_top}
               onClick={handleRemoveFromTail}
               isLoader={onDeleteLoading.tail}
@@ -360,11 +365,13 @@ export const ListPage: React.FC = () => {
               type="number"
               value={indexValue}
               onChange={handleIndexChange}
+              data-test-id="listIndexInput"
             />
           </div>
           <div className={styles.boxes}>
             <Button
               text="Добавить по индексу"
+              data-test-id="addByIndex"
               extraClass={styles.button__extra_bottom}
               onClick={handleInsertAtIndex}
               isLoader={onAddLoading.index}
@@ -372,6 +379,7 @@ export const ListPage: React.FC = () => {
             />
             <Button
               text="Удалить по индексу"
+              data-test-id="removeByIndex"
               extraClass={styles.button__extra_bottom}
               onClick={handleRemoveAtIndex}
               isLoader={onDeleteLoading.index}

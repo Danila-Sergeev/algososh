@@ -104,12 +104,14 @@ export const QueuePage: React.FC = () => {
         <div className={styles.boxes}>
           <Button
             text="Добавить"
+            data-test-id="addToQueue"
             onClick={handleAdd}
             disabled={disabled}
             isLoader={isLoading}
           />
           <Button
             text="Удалить"
+            data-test-id="removeFromQueue"
             onClick={handleDelete}
             disabled={deleteDisabled}
             isLoader={isLoading}
@@ -117,11 +119,15 @@ export const QueuePage: React.FC = () => {
         </div>
         <Button
           text="Очистить"
+          data-test-id="clearQueue"
           onClick={handleClear}
           disabled={deleteDisabled}
         />
       </div>
-      <div className={styles.circle__container}>
+      <div
+        className={styles.circle__container}
+        data-test-id="queueCircleContainer"
+      >
         {queueArray.map((item, index) => (
           <Circle
             key={index}

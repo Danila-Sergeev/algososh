@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircleWithArrow Component рендерит элемент без стрелки 1`] = `
+<DocumentFragment>
+  <div
+    class="container containerBelow"
+  >
+    <div
+      class="content "
+    >
+      <div
+        class="text text_type_input text_color_input mb-4 absolute head element"
+        data-test-id="circleHead"
+      />
+      <div
+        class="circle   default"
+        data-test-id="circle"
+      >
+        <p
+          class="text text_type_circle text_color_input letter"
+        />
+      </div>
+      <p
+        class="text text_type_input text_color_input mt-4 absolute index"
+      />
+      <div
+        class="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-test-id="circleTail"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CircleWithArrow Component рендерит элемент со стрелкой 1`] = `
+<DocumentFragment>
+  <div
+    class="container containerBelow"
+  >
+    <div
+      class="content "
+    >
+      <div
+        class="text text_type_input text_color_input mb-4 absolute head element"
+        data-test-id="circleHead"
+      />
+      <div
+        class="circle   default"
+        data-test-id="circle"
+      >
+        <p
+          class="text text_type_circle text_color_input letter"
+        />
+      </div>
+      <p
+        class="text text_type_input text_color_input mt-4 absolute index"
+      />
+      <div
+        class="text text_type_input text_color_input mt-4 absolute tail30 element"
+        data-test-id="circleTail"
+      />
+    </div>
+    <div
+      class="arrow"
+      data-testid="arrow"
+    >
+      &gt;
+    </div>
+  </div>
+</DocumentFragment>
+`;
